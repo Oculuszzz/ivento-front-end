@@ -1,0 +1,471 @@
+{
+  "users": [
+    {
+      "username": "UserA",
+      "role": "ADMIN",
+      "email": "userA@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "G",
+      "id": 1
+    },
+    {
+      "username": "UserB",
+      "role": "ADMIN",
+      "email": "userB@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "G",
+      "id": 2
+    },
+    {
+      "username": "UserC",
+      "role": "USER",
+      "email": "userC@test.com",
+      "password": "*Test",
+      "isBlocked": false,
+      "avatar": "G",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "username": "UserD",
+      "role": "USER",
+      "email": "userD@test.com",
+      "password": "*Test",
+      "isBlocked": false,
+      "avatar": "D"
+    },
+    {
+      "id": 5,
+      "username": "UserE",
+      "role": "USER",
+      "email": "userE@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "E"
+    },
+    {
+      "id": 6,
+      "username": "UserF",
+      "role": "USER",
+      "email": "userF@test.com",
+      "password": "*Test",
+      "isBlocked": false,
+      "avatar": "F"
+    },
+    {
+      "id": 7,
+      "username": "UserG",
+      "role": "ADMIN",
+      "email": "userG@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "G"
+    },
+    {
+      "id": 8,
+      "username": "UserH",
+      "role": "ADMIN",
+      "email": "userH@test.com",
+      "password": "*Test",
+      "isBlocked": false,
+      "avatar": "H"
+    },
+    {
+      "id": 9,
+      "username": "UserI",
+      "role": "USER",
+      "email": "userI@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "I"
+    },
+    {
+      "id": 10,
+      "username": "UserJ",
+      "role": "USER",
+      "email": "userJ@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "J"
+    },
+    {
+      "id": 11,
+      "username": "UserK",
+      "role": "USER",
+      "email": "userK@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "K"
+    },
+    {
+      "id": 12,
+      "username": "UserL",
+      "role": "USER",
+      "email": "userL@test.com",
+      "password": "*Test",
+      "isBlocked": true,
+      "avatar": "L"
+    },
+    {
+      "username": "UserM",
+      "role": "ADMIN",
+      "email": "userM@test.com",
+      "password": "*Test",
+      "isBlocked": false,
+      "avatar": "G",
+      "id": 13
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "USER"
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "name": "Active"
+    },
+    {
+      "id": 2,
+      "name": "Disabled"
+    }
+  ],
+  "products": [
+    {
+      "productCode": "EM1",
+      "brand": "EYE MO",
+      "quantity": 10,
+      "price": 535,
+      "name": "Moist Eye Lubricant Eyedrop 7.5ml",
+      "lastUpdate": "2023-03-02T11:32:03.889Z",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "productCode": "EM2",
+      "brand": "EYE MO",
+      "name": "Regular Eye Drops 15ml",
+      "quantity": 5,
+      "lastUpdate": "2023-02-02T01:48:34.155Z",
+      "price": "1000"
+    },
+    {
+      "id": 4,
+      "productCode": "EG2",
+      "brand": "EYE GLO",
+      "name": "Relieves Sore, Swollen & Watery Eyes 10ml",
+      "quantity": 15,
+      "lastUpdate": "2023-02-02T01:48:34.155Z",
+      "price": "700"
+    },
+    {
+      "id": 5,
+      "productCode": "RT1",
+      "brand": "ROHTO",
+      "name": "Cool Eye Wash 150ml",
+      "quantity": 34,
+      "lastUpdate": "2023-02-02T01:48:34.155Z",
+      "price": "3000"
+    },
+    {
+      "id": 3,
+      "productCode": "EG1",
+      "brand": "EYE GLO",
+      "name": "Plus 10ml",
+      "quantity": 0,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "550"
+    },
+    {
+      "id": 7,
+      "productCode": "RT3",
+      "brand": "ROHTO",
+      "name": "Eye Drops Aqua 13ml",
+      "quantity": 5,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "2050"
+    },
+    {
+      "id": 8,
+      "productCode": "OT1",
+      "brand": "OPTREX",
+      "name": "Eye Lotion 110ml",
+      "quantity": 34,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "3600"
+    },
+    {
+      "id": 10,
+      "productCode": "OT3",
+      "brand": "OPTREX",
+      "name": "C Cube Eye Drops 8ml",
+      "quantity": 40,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "880"
+    },
+    {
+      "id": 11,
+      "productCode": "ST1",
+      "brand": "SYSTANE",
+      "name": "Hydration Eye Drops 10ml",
+      "quantity": 0,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "350"
+    },
+    {
+      "id": 9,
+      "productCode": "OT2",
+      "brand": "OPTREX",
+      "name": "Rehydrating Eye Drops 10ml",
+      "quantity": 0,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "1570"
+    },
+    {
+      "id": 6,
+      "productCode": "RT2",
+      "brand": "ROHTO",
+      "name": "Extra Cool Eye Drops 13ml",
+      "quantity": 0,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "840"
+    },
+    {
+      "id": 12,
+      "productCode": "TN1",
+      "brand": "TEARS NATURALE",
+      "name": "Tears Naturale II 15Ml",
+      "quantity": 100,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "660"
+    },
+    {
+      "id": 13,
+      "productCode": "BL1",
+      "brand": "BIO-LIFE",
+      "name": "Glucosamine 100's + 2 x 30's",
+      "quantity": 100,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "8590"
+    },
+    {
+      "id": 17,
+      "productCode": "BM2",
+      "brand": "BLACKMORES",
+      "name": "Pregnancy and Breast Feeding Gold 60s",
+      "quantity": 74,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "4575"
+    },
+    {
+      "id": 14,
+      "productCode": "BL2",
+      "brand": "BIO-LIFE",
+      "name": "MaxX Fish Oil 1000mg Omega-3 3x100's",
+      "quantity": 15,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "2690"
+    },
+    {
+      "id": 16,
+      "productCode": "BM1",
+      "brand": "BLACKMORES",
+      "name": "Calcium+D3 120s",
+      "quantity": 0,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "1755"
+    },
+    {
+      "id": 15,
+      "productCode": "BL3",
+      "brand": "BIO-LIFE",
+      "name": "Multivitamins and Minerals 30S",
+      "quantity": 0,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "price": "8750"
+    },
+    {
+      "productCode": "NS01",
+      "brand": "NESTLE",
+      "name": "Hot Cereal",
+      "quantity": 50,
+      "lastUpdate": "2023-03-02T01:48:34.155Z",
+      "id": 18,
+      "price": "1459"
+    },
+    {
+      "productCode": "NS02",
+      "brand": "NESTUM",
+      "name": "3in1 Original (15 packs) 28g",
+      "quantity": 15,
+      "lastUpdate": "2023-03-02T04:26:35.422Z",
+      "id": 19,
+      "price": "1847"
+    }
+  ],
+  "customerOrders": [
+    {
+      "id": 1,
+      "name": "Customer Z",
+      "phoneNum": "0112321144",
+      "address": "Home Z, \nBuilding Z,\n56000 Melaka",
+      "companyName": "Company Z",
+      "companyAddress": "Company Z, \nBuilding Z,\n56000 Melaka",
+      "totalPrice": 13988,
+      "products": [
+        {
+          "id": 9,
+          "productId": 12,
+          "productCode": "TN1",
+          "brand": "TEARS NATURALE",
+          "name": "Tears Naturale II 15Ml",
+          "price": "660",
+          "totalPrice": 6600,
+          "quantity": 10
+        },
+        {
+          "id": 8,
+          "productId": 19,
+          "productCode": "NS02",
+          "brand": "NESTUM",
+          "name": "3in1 Original (15 packs) 28g",
+          "price": "1847",
+          "totalPrice": 7388,
+          "quantity": 4
+        }
+      ],
+      "status": "NEW_ORDER",
+      "lastUpdate": "2023-03-02T04:26:35.422Z"
+    },
+    {
+      "id": 2,
+      "name": "Customer X",
+      "phoneNum": "0112321144",
+      "address": "Home X, \nBuilding X,\n56000 Melaka",
+      "companyName": "Company X",
+      "companyAddress": "Company X, \nBuilding X,\n56000 Melaka",
+      "totalPrice": 8750,
+      "products": [
+        {
+          "id": 7,
+          "productId": 15,
+          "productCode": "BL3",
+          "brand": "BIO-LIFE",
+          "name": "Multivitamins and Minerals 30S",
+          "price": "8750",
+          "totalPrice": 8750,
+          "quantity": 1
+        }
+      ],
+      "status": "NEW_ORDER",
+      "lastUpdate": "2023-03-02T04:26:35.422Z"
+    },
+    {
+      "id": 3,
+      "name": "Customer A",
+      "phoneNum": "0112321144",
+      "address": "Home A, \nBuilding A,\n56000 Melaka",
+      "companyName": "Company A",
+      "companyAddress": "Company A, \nBuilding A,\n56000 Melaka",
+      "totalPrice": 3300,
+      "products": [
+        {
+          "id": 6,
+          "productId": 12,
+          "productCode": "TN1",
+          "brand": "TEARS NATURALE",
+          "name": "Tears Naturale II 15Ml",
+          "price": 660,
+          "totalPrice": 3300,
+          "quantity": 5
+        }
+      ],
+      "status": "NEW_ORDER",
+      "lastUpdate": "2023-03-03T10:36:36.652Z"
+    },
+    {
+      "name": "Customer B",
+      "phoneNum": "0112321144",
+      "address": "Home B,\n56000 Kuala Lumpur",
+      "companyName": "Company B",
+      "companyAddress": "Company B,\n56000 Kuala Lumpur",
+      "totalPrice": 32715,
+      "products": [
+        {
+          "id": 1,
+          "productId": 1,
+          "productCode": "EM1",
+          "brand": "EYE MO",
+          "name": "Moist Eye Lubricant Eyedrop 7.5ml",
+          "price": 535,
+          "totalPrice": 2140,
+          "quantity": 4
+        },
+        {
+          "id": 2,
+          "productId": 10,
+          "productCode": "OT3",
+          "brand": "OPTREX",
+          "name": "C Cube Eye Drops 8ml",
+          "price": 880,
+          "totalPrice": 4400,
+          "quantity": 5
+        },
+        {
+          "id": 3,
+          "productId": 12,
+          "productCode": "TN1",
+          "brand": "TEARS NATURALE",
+          "name": "Tears Naturale II 15Ml",
+          "price": 660,
+          "totalPrice": 3300,
+          "quantity": 5
+        },
+        {
+          "id": 4,
+          "productId": 17,
+          "productCode": "BM2",
+          "brand": "BLACKMORES",
+          "name": "Pregnancy and Breast Feeding Gold 60s",
+          "price": 4575,
+          "totalPrice": 22875,
+          "quantity": 5
+        }
+      ],
+      "lastUpdate": "2023-03-03T10:44:28.814Z",
+      "status": "NEW_ORDER",
+      "id": 4
+    },
+    {
+      "name": "Customer C",
+      "phoneNum": "0112321144",
+      "address": "Home C,\nPerlis",
+      "companyName": "",
+      "companyAddress": "",
+      "totalPrice": 4575,
+      "products": [
+        {
+          "id": 5,
+          "productId": 17,
+          "productCode": "BM2",
+          "brand": "BLACKMORES",
+          "name": "Pregnancy and Breast Feeding Gold 60s",
+          "price": 4575,
+          "totalPrice": 4575,
+          "quantity": 1
+        }
+      ],
+      "lastUpdate": "2023-03-03T10:52:23.159Z",
+      "status": "NEW_ORDER",
+      "id": 5
+    }
+  ]
+}

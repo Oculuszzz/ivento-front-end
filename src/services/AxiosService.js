@@ -51,10 +51,6 @@ const responseHandler = (response) => {
 const errorHandler = (error) => {
   // Access Token Required/Expired
   if (error.response.status === 401) {
-    console.log("INNNNNN");
-
-    console.log("error.response.", error.response);
-
     refreshToken();
   }
 

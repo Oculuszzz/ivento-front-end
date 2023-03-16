@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   TextInput,
   PasswordInput,
@@ -32,7 +32,7 @@ const Signin = () => {
   });
 
   const navigate = useNavigate();
-  const [showError, setShowError] = useState(false);
+  const showError = useRef(false);
 
   const {
     isLoggedIn: isSuccessfullyLoggedIn,
@@ -52,7 +52,7 @@ const Signin = () => {
   useEffect(() => {
     if (!isSigninApiLoading && signinApiError) {
       signinApiTrigger(false, "", "");
-      setShowError(true);
+      showError.current = true;
       console.log("ERROR", signinApiError);
     }
   }, [isSigninApiLoading, signinApiError, signinApiTrigger]);
@@ -95,7 +95,7 @@ const Signin = () => {
           <Text size="xs" opacity={0.65}>
             Please login to continue.
           </Text>
-          {showError && (
+          {showError.current && (
             <Alert icon={<IconAlertCircle />} title="Error!" color="red">
               Invalid username/password.
               <Space h="xs" />

@@ -48,19 +48,21 @@ const useSignin = () => {
           } else {
             setIsLoggedIn(false);
             setIsLoading(false);
-            setError(error.response.data);
           }
 
           if (error.response) {
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
+
+            setError(error.response.data);
           } else if (error.request) {
             console.log(error.request);
+            setError(error.request);
           } else {
+            setError(error.message);
             console.log("Error", error.message);
           }
-          console.log(error.config);
         });
 
       // Clear/cancel the request

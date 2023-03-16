@@ -12,12 +12,11 @@ import {
   Text,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useContext } from "react";
-import AuthContext from "../context/Auth-context";
 import { validateInput } from "../utils/FormUtils";
+import useAuthenticate from "./hooks/useAuthenticate";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
-  const authCtx = useContext(AuthContext);
   const formProps = useForm({
     initialValues: {
       username: "",
@@ -29,20 +28,33 @@ const Signin = () => {
     },
   });
 
-  useEffect(() => {
-    // Wait until login is success
-    if (authCtx.isLoading) {
-      return;
-    }
+  const navigate = useNavigate();
 
-    // Show error message login failed
-    if (!authCtx.isLoggedIn) {
+  const {
+    isLoggedIn: isSuccessfullyLoggedIn,
+    isLoading: isSigninApiLoading,
+    error: signinApiError,
+    trigger: signinApiTrigger,
+  } = useAuthenticate.useSignin();
+
+  // Success
+  useEffect(() => {
+    if (!isSigninApiLoading && isSuccessfullyLoggedIn) {
+      navigate(0);
     }
-  }, [authCtx.isLoading, authCtx.isLoggedIn]);
+  }, [isSuccessfullyLoggedIn, isSigninApiLoading, navigate]);
+
+  // Failed
+  useEffect(() => {
+    if (!isSigninApiLoading && signinApiError) {
+      signinApiTrigger(false, "", "");
+      console.log("ERROR", signinApiError);
+    }
+  }, [isSigninApiLoading, signinApiError, signinApiTrigger]);
 
   const submitHandler = (values) => {
     const { username, password } = values;
-    authCtx.onLogin(username, password);
+    signinApiTrigger(true, username, password);
   };
 
   return (
@@ -62,7 +74,7 @@ const Signin = () => {
         // margin: "-50px 0 0 -50px",
       }}
     >
-      <LoadingOverlay visible={authCtx.isLoading} overlayBlur={2} />
+      <LoadingOverlay visible={isSigninApiLoading} overlayBlur={2} />
       <Stack spacing="xl">
         <Group position="center">
           <UnstyledButton>
@@ -104,42 +116,6 @@ const Signin = () => {
       </Stack>
     </Card>
   );
-
-  // return (
-  //   <Paper shadow="md" radius="md" p="xl" withBorder>
-  //     <Box sx={{ minWidth: 350, textAlign: "left" }} mx="auto">
-  //       <Stack spacing="sm">
-  //         <Text size="xl" fw={700}>
-  //           Sign in
-  //         </Text>
-  //         <form
-  //           onSubmit={formProps.onSubmit((values) => submitHandler(values))}
-  //         >
-  //           <Stack spacing="md">
-  //             <TextInput
-  //               id="username"
-  //               label="Username"
-  //               placeholder="Username"
-  //               {...formProps.getInputProps("username")}
-  //             />
-  //             <PasswordInput
-  //               id="password"
-  //               label="Password"
-  //               placeholder="Password"
-  //               {...formProps.getInputProps("password")}
-  //             />
-  //             <Group position="apart" mt="md">
-  //               <Button component="a" href="/signup" variant="subtle">
-  //                 Create account
-  //               </Button>
-  //               <Button type="submit">Submit</Button>
-  //             </Group>
-  //           </Stack>
-  //         </form>
-  //       </Stack>
-  //     </Box>
-  //   </Paper>
-  // );
 };
 
 export default Signin;

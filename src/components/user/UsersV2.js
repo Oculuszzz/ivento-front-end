@@ -68,7 +68,7 @@ const UsersV2 = () => {
           id: userData.id,
         },
         {
-          headers: AuthHeader(),
+          headers: AuthHeader.getAuthHeader(),
         }
       )
       .then((response) => {

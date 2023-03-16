@@ -13,7 +13,7 @@ const useAxiosFetch = (url) => {
 
     // Make a request for a user with a given ID
     axiosInstance.service
-      .get(url, { headers: AuthHeader() })
+      .get(url, { headers: AuthHeader.getAuthHeader() })
       .then((response) => {
         // Do a checker from the response
         if (!response.status === 200) {
@@ -33,18 +33,19 @@ const useAxiosFetch = (url) => {
           console.log("Fecth abort error");
         } else {
           setIsLoading(false);
+          setError(error.response.data);
         }
 
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log("Error", error.message);
-        }
-        console.log(error.config);
+        // if (error.response) {
+        //   console.log(error.response.data);
+        //   console.log(error.response.status);
+        //   console.log(error.response.headers);
+        // } else if (error.request) {
+        //   console.log(error.request);
+        // } else {
+        //   console.log("Error", error.message);
+        // }
+        // console.log(error.config);
       })
       .finally(function () {
         // always executed

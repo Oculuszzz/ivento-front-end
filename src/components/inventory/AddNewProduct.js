@@ -60,7 +60,7 @@ const AddNewProduct = () => {
 
     productAxiosInstance.service
       .post("add-new-product", newProductData, {
-        headers: AuthHeader(),
+        headers: AuthHeader.getAuthHeader(),
       })
       .then((response) => {
         // handle success

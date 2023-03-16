@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { AppShell, Footer, useMantineTheme } from "@mantine/core";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AuthContext from "../context/Auth-context";
 
-import { useContext } from "react";
 import AddNewUser from "./user/AddNewUser";
 import NavbarNested from "./NavbarNested";
 import UpdateUser from "./user/UpdateUser";
@@ -15,54 +13,40 @@ import UpdateProduct from "./inventory/UpdateProduct";
 import AddNewOrder from "./order/AddNewOrder";
 import Orders from "./order/Orders";
 import HeaderApp from "./HeaderApp";
-import Signin from "./Signin";
 import PrivateRoute from "./PrivateRoute";
 import Home from "./Home";
+import useAuthContext from "../context/Auth-context";
 
 const AppShellCustom = () => {
-  const authCtx = useContext(AuthContext);
+  const { authState, setAuthState } = useAuthContext();
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
 
   const logoutHandler = () => {
-    authCtx.onLogout();
+    localStorage.removeItem("user");
+    setAuthState((prevState) => ({ ...prevState, isLoggedIn: false }));
   };
 
   return (
     <React.Fragment>
       <BrowserRouter>
         <AppShell
-          styles={{
-            main: {
-              background:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[8]
-                  : theme.colors.gray[0],
-            },
-          }}
           navbarOffsetBreakpoint="sm"
           asideOffsetBreakpoint="sm"
           navbar={
-            authCtx.isLoggedIn && (
+            authState.isLoggedIn && (
               <NavbarNested onLogout={logoutHandler} hidden={!opened} />
             )
           }
-          // aside={
-          //   <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
-          //     <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-          //       <Text>Application sidebar</Text>
-          //     </Aside>
-          //   </MediaQuery>
-          // }
           footer={
-            authCtx.isLoggedIn && (
+            authState.isLoggedIn && (
               <Footer height={60} p="md">
                 {/* Application footer */}
               </Footer>
             )
           }
           header={
-            authCtx.isLoggedIn && (
+            authState.isLoggedIn && (
               <HeaderApp theme={theme} opened={opened} onOpened={setOpened} />
             )
           }

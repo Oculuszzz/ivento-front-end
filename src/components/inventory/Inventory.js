@@ -81,7 +81,7 @@ const Inventory = () => {
 
     productAxiosInstance.service
       .delete(`/delete-product?id=${product.id}`, {
-        headers: AuthHeader(),
+        headers: AuthHeader.getAuthHeader(),
       })
       .then((response) => {
         // handle success

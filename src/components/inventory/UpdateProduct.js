@@ -96,7 +96,7 @@ const UpdateProduct = () => {
     // Update user data
     productAxiosInstance.service
       .put("update-product", updatedProductData, {
-        headers: AuthHeader(),
+        headers: AuthHeader.getAuthHeader(),
       })
       .then((response) => {
         // handle success

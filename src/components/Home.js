@@ -1,17 +1,15 @@
-import { Card, Title, Center, Box, Group } from "@mantine/core";
-import React, { useContext } from "react";
-import AuthContext from "../context/Auth-context";
+import { Card, Title, Group } from "@mantine/core";
+import React from "react";
+import useAuthContext from "../context/Auth-context";
 import TokenService from "../services/TokenService";
 import Signin from "./Signin";
 
 const Home = () => {
-  const authCtx = useContext(AuthContext);
-
-  // Wait AuthContext completely initialize before  committing to redirecting or rendering the protected component.
+  const { authState } = useAuthContext();
 
   return (
     <React.Fragment>
-      {!authCtx.isLoggedIn ? (
+      {!authState.isLoggedIn ? (
         <Group position="center">
           <Signin />
         </Group>

@@ -75,7 +75,7 @@ const UpdateUser = () => {
     // Update user data
     userAxiosInstance.service
       .put("update-user", updatedUserData, {
-        headers: AuthHeader(),
+        headers: AuthHeader.getAuthHeader(),
       })
       .then((response) => {
         // handle success

@@ -135,7 +135,7 @@ const AddNewCustomerOrder = () => {
 
     customerOrderAxiosInstance.service
       .post("add-new-customer-order", orderJson, {
-        headers: AuthHeader(),
+        headers: AuthHeader.getAuthHeader(),
       })
       .then((response) => {
         // handle success

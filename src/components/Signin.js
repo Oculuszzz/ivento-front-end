@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   TextInput,
   PasswordInput,
@@ -10,11 +10,14 @@ import {
   LoadingOverlay,
   UnstyledButton,
   Text,
+  Alert,
+  Space,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { validateInput } from "../utils/FormUtils";
 import useAuthenticate from "./hooks/useAuthenticate";
 import { useNavigate } from "react-router-dom";
+import { IconAlertCircle } from "@tabler/icons";
 
 const Signin = () => {
   const formProps = useForm({
@@ -29,6 +32,7 @@ const Signin = () => {
   });
 
   const navigate = useNavigate();
+  const [showError, setShowError] = useState(false);
 
   const {
     isLoggedIn: isSuccessfullyLoggedIn,
@@ -48,6 +52,7 @@ const Signin = () => {
   useEffect(() => {
     if (!isSigninApiLoading && signinApiError) {
       signinApiTrigger(false, "", "");
+      setShowError(true);
       console.log("ERROR", signinApiError);
     }
   }, [isSigninApiLoading, signinApiError, signinApiTrigger]);
@@ -86,9 +91,18 @@ const Signin = () => {
             </Title>
           </UnstyledButton>
         </Group>
-        <Text size="xs" opacity={0.65}>
-          Please login to continue.
-        </Text>
+        <Group>
+          <Text size="xs" opacity={0.65}>
+            Please login to continue.
+          </Text>
+          {showError && (
+            <Alert icon={<IconAlertCircle />} title="Error!" color="red">
+              Invalid username/password.
+              <Space h="xs" />
+              To create new account please contact administrator.
+            </Alert>
+          )}
+        </Group>
         <form onSubmit={formProps.onSubmit((values) => submitHandler(values))}>
           <Stack spacing="md">
             <TextInput

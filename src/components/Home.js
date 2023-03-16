@@ -1,4 +1,4 @@
-import { Card, Title, Group } from "@mantine/core";
+import { Card, Title, Group, Space, Center } from "@mantine/core";
 import React from "react";
 import useAuthContext from "../context/Auth-context";
 import TokenService from "../services/TokenService";
@@ -10,9 +10,11 @@ const Home = () => {
   return (
     <React.Fragment>
       {!authState.isLoggedIn ? (
-        <Group position="center">
-          <Signin />
-        </Group>
+        <Center h="80%" mx="auto">
+          <Group position="center">
+            <Signin />
+          </Group>{" "}
+        </Center>
       ) : (
         <Card p="lg" radius="md" withBorder>
           <Group>

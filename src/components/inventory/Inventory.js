@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Title, SimpleGrid, Box, Card } from "@mantine/core";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { useNavigate, useParams } from "react-router-dom";
-import { IconCheck, IconX } from "@tabler/icons";
+import { IconCheck, IconX } from "@tabler/icons-react";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 import TableInventory from "./TableInventory";
 import SearchInput from "../../ui/SearchInput";

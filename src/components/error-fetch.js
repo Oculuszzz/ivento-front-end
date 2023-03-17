@@ -1,5 +1,5 @@
 import { Alert } from "@mantine/core";
-import { IconAlertCircle } from "@tabler/icons";
+import { IconAlertCircle } from "@tabler/icons-react";
 
 const ErrorFetch = (props) => {
   return (

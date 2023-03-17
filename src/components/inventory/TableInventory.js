@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Group, Text, Menu, ActionIcon, Box } from "@mantine/core";
-import { IconDots, IconPencil, IconTrash } from "@tabler/icons";
+import { IconDots, IconPencil, IconTrash } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 import { sortBy } from "lodash";
-import { convertDateTimeToDateTimeString } from "../../utils/DateUtils";
+import DateUtils from "../../utils/DateUtils";
 import { convertNumberToDecimal } from "../../utils/CurrencyUtils";
 
 const PAGE_SIZE = 12;
@@ -165,7 +165,7 @@ const TableInventory = (props) => {
           textAlignment: "center",
           width: "8%",
           render: (record) =>
-            convertDateTimeToDateTimeString(record.lastUpdate),
+            DateUtils.convertDateTimeToDateTimeString(record.lastUpdate),
         },
         {
           accessor: "actions",

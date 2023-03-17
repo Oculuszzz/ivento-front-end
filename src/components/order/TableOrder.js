@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { DataTable } from "mantine-datatable";
 import { sortBy } from "lodash";
-import { convertDateTimeToDateTimeString } from "../../utils/DateUtils";
+import DateUtils from "../../utils/DateUtils";
 import { convertNumberToDecimal } from "../../utils/CurrencyUtils";
 
 const PAGE_SIZE = 12;
@@ -156,7 +156,7 @@ const TableOrder = (props) => {
           textAlignment: "right",
           width: "5%",
           render: (record) =>
-            convertDateTimeToDateTimeString(record.lastUpdate),
+            DateUtils.convertDateTimeToDateTimeString(record.lastUpdate),
         },
       ]}
       rowExpansion={{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, SimpleGrid, Box, Title } from "@mantine/core";
 import { useNavigate, useParams } from "react-router-dom";
-import { IconX } from "@tabler/icons";
+import { IconX } from "@tabler/icons-react";
 import { showNotification } from "@mantine/notifications";
 import SearchInput from "../../ui/SearchInput";
 import TableOrder from "./TableOrder";

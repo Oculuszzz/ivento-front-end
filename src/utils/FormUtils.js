@@ -1,4 +1,4 @@
-import { isNull, isNumber } from "lodash";
+import { isNumber } from "lodash";
 
 export const USERNAME_ID = "username";
 export const EMAIL_ID = "email";
@@ -11,7 +11,7 @@ export const PRODUCT_NAME_ID = "productName";
 export const BRAND_ID = "brand";
 export const CUSTOMER_NAME_ID = "customerName";
 
-const DEFAULT_INPUT_ERROR_LITERAL = "Field can't be empty.";
+// const DEFAULT_INPUT_ERROR_LITERAL = "Field can't be empty.";
 const ERROR_USERNAME_LITERAL = "Enter a username!";
 const ERROR_EMAIL_LITERAL = "Enter a email address!";
 const ERROR_SELECT_ROLE_LITERAL = "Select a role!";
@@ -20,17 +20,17 @@ const ERROR_PRODUCT_CODE_LITERAL = "Enter a product code!";
 const ERROR_PRODUCT_NAME_LITERAL = "Enter a product name!";
 const ERROR_BRAND_LITERAL = "Enter a brand name!";
 const ERROR_PASSWORD_LITERAL = "Enter a password!";
-const INVALID_PASSWORD_LITERAL =
-  "Use 8 or more characters with a mix of letters, numbers & symbols!";
+// const INVALID_PASSWORD_LITERAL =
+//   "Use 8 or more characters with a mix of letters, numbers & symbols!";
 const ERROR_CONFIRM_PASSWORD_LITERAL = "Enter a confirm password!";
-const INVALID_CONFIRM_PASSWORD_LITERAL =
-  "Those passwords didn’t match. Try again!";
-const INVALID_USER_LITERAL =
-  "Wrong password. Try again or click Forgot password to reset it!";
+// const INVALID_CONFIRM_PASSWORD_LITERAL =
+//   "Those passwords didn’t match. Try again!";
+// const INVALID_USER_LITERAL =
+//   "Wrong password. Try again or click Forgot password to reset it!";
 
-const STRONG_PASSWORD_REGEX = new RegExp(
-  "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
-);
+// const STRONG_PASSWORD_REGEX = new RegExp(
+//   "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
+// );
 const ERROR_SELECT = "Please select.";
 
 export const validateInput = (id, value) => {

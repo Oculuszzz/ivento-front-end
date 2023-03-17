@@ -17,7 +17,7 @@ import { useForm } from "@mantine/form";
 import { validateInput } from "../utils/FormUtils";
 import useAuthenticate from "./hooks/useAuthenticate";
 import { useNavigate } from "react-router-dom";
-import { IconAlertCircle } from "@tabler/icons";
+import { IconAlertCircle } from "@tabler/icons-react";
 
 const Signin = () => {
   const formProps = useForm({

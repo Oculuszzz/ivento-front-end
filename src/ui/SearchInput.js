@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextInput, ActionIcon } from "@mantine/core";
-import { IconSearch, IconArrowRight } from "@tabler/icons";
+import { IconSearch, IconArrowRight } from "@tabler/icons-react";
 import { useMantineTheme } from "@mantine/core";
 
 const SearchInput = (props) => {

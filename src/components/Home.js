@@ -3,6 +3,7 @@ import React from "react";
 import useAuthContext from "../context/Auth-context";
 import TokenService from "../services/TokenService";
 import InventoryStats from "./inventory/InventoryStats";
+import OrdersStatByMonth from "./order/OrdersStatByMonth";
 import Signin from "./Signin";
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
             </Group>
           </Card>
           <InventoryStats />
+          <OrdersStatByMonth />
         </Stack>
       )}
     </React.Fragment>

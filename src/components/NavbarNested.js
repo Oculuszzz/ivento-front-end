@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Navbar, ScrollArea, createStyles, Menu } from "@mantine/core";
+import { Navbar, ScrollArea, createStyles, Menu, rem } from "@mantine/core";
 import {
-  IconAccessible,
+  IconGauge,
   IconMenuOrder,
   IconBoxMultiple,
+  IconAccessible,
   IconLogout,
-  IconGauge,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import UserButton from "../ui/UserButton";
 import { LinksGroup } from "../ui/NavbarLinksGroup";
 import TokenService from "../services/TokenService";
@@ -63,26 +63,22 @@ const navUser = [
 
 const useStyles = createStyles((theme) => ({
   navbar: {
-    backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.white,
+    backgroundColor: theme.white,
     paddingBottom: 0,
-    // height: "90%",
   },
 
   header: {
     padding: theme.spacing.md,
     paddingTop: 0,
-    marginLeft: -theme.spacing.md,
-    marginRight: -theme.spacing.md,
+    marginLeft: `calc(${theme.spacing.md} * -1)`,
+    marginRight: `calc(${theme.spacing.md} * -1)`,
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
-    borderBottom: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+    borderBottom: `${rem(1)} solid ${theme.colors.gray[3]}`,
   },
 
   links: {
-    marginLeft: -theme.spacing.md,
-    marginRight: -theme.spacing.md,
+    marginLeft: `calc(${theme.spacing.md} * -1)`,
+    marginRight: `calc(${theme.spacing.md} * -1)`,
   },
 
   linksInner: {
@@ -91,11 +87,9 @@ const useStyles = createStyles((theme) => ({
   },
 
   footer: {
-    marginLeft: -theme.spacing.md,
-    marginRight: -theme.spacing.md,
-    borderTop: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+    marginLeft: `calc(${theme.spacing.md} * -1)`,
+    marginRight: `calc(${theme.spacing.md} * -1)`,
+    borderTop: `${rem(1)} solid ${theme.colors.gray[3]}`,
   },
 }));
 

@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthContextProvider } from "./context/Auth-context";
 import { MantineProvider } from "@mantine/core";
-import { NotificationsProvider } from "@mantine/notifications";
+import { Notifications } from "@mantine/notifications";
 
 import { CustomFonts } from "./CustomFonts";
 
@@ -29,11 +29,10 @@ root.render(
       // }}
     >
       <CustomFonts />
-      <NotificationsProvider>
-        <AuthContextProvider>
-          <App />
-        </AuthContextProvider>
-      </NotificationsProvider>
+      <Notifications />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </MantineProvider>
   </React.StrictMode>
 );

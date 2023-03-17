@@ -10,7 +10,7 @@ import {
   IconArrowDownRight,
   IconArrowUpRight,
   IconArrowRight,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 
 const icons = {
   up: IconArrowUpRight,

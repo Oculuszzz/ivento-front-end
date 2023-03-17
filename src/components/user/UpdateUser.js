@@ -10,7 +10,7 @@ import {
   LoadingOverlay,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IconCheck, IconX } from "@tabler/icons";
+import { IconCheck, IconX } from "@tabler/icons-react";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { validateInput, validateSelect } from "../../utils/FormUtils";
 import { useParams, useNavigate } from "react-router-dom";

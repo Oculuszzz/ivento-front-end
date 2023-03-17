@@ -10,7 +10,7 @@ import {
   NumberInput,
   LoadingOverlay,
 } from "@mantine/core";
-import { IconCheck, IconX } from "@tabler/icons";
+import { IconCheck, IconX } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { useNavigate } from "react-router-dom";
@@ -90,8 +90,6 @@ const UpdateProduct = () => {
       price: Number(convertDecimalToNumber(values.price)),
       lastUpdate: new Date().toISOString(),
     };
-
-    console.log(updatedProductData);
 
     // Update user data
     productAxiosInstance.service

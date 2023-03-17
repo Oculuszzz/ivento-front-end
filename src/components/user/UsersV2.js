@@ -19,12 +19,12 @@ import {
   IconLockAccessOff,
   IconCheck,
   IconX,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { DataTable } from "mantine-datatable";
 import { useNavigate } from "react-router-dom";
 import useAxiosFetch from "../hooks/useAxiosFetch";
-import { lastActive } from "../../utils/DateUtils";
+import DateUtils from "../../utils/DateUtils";
 import { userAxiosInstance } from "../../services/AxiosService";
 import AuthHeader from "../../services/AuthHeader";
 
@@ -159,7 +159,9 @@ const UsersV2 = () => {
                 // sortable: true,
                 title: <Text>Last active</Text>,
                 render: (user) => {
-                  return `${lastActive(new Date(user.lastLoggedIn))} days ago`;
+                  return `${DateUtils.lastActive(
+                    new Date(user.lastLoggedIn)
+                  )} days ago`;
                 },
               },
               {

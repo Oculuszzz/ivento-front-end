@@ -1,12 +1,5 @@
-import {
-  Button,
-  Container,
-  createStyles,
-  Group,
-  Text,
-  Title,
-} from "@mantine/core";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Container, createStyles, Text, Title } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -53,9 +46,9 @@ const ErrorPage = () => {
   const { classes } = useStyles();
   const navigate = useNavigate();
 
-  const returnHandler = () => {
-    navigate("/");
-  };
+  // const returnHandler = () => {
+  //   navigate("/");
+  // };
 
   return (
     <Container className={classes.root}>

@@ -7,12 +7,13 @@ import {
   Text,
   UnstyledButton,
   createStyles,
+  rem,
 } from "@mantine/core";
 import {
   IconCalendarStats,
   IconChevronLeft,
   IconChevronRight,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
@@ -20,16 +21,13 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     display: "block",
     width: "100%",
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
+    color: theme.black,
     fontSize: theme.fontSizes.sm,
 
     "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[7]
-          : theme.colors.gray[0],
-      color: theme.colorScheme === "dark" ? theme.white : theme.black,
+      backgroundColor: theme.colors.gray[0],
+      color: theme.black,
     },
   },
 
@@ -37,14 +35,11 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     display: "block",
     textDecoration: "none",
-    color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+    color: theme.black,
 
     "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[7]
-          : theme.colors.gray[0],
-      color: theme.colorScheme === "dark" ? theme.white : theme.black,
+      backgroundColor: theme.colors.gray[0],
+      color: theme.black,
     },
   },
 
@@ -52,24 +47,16 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     display: "block",
     textDecoration: "none",
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    paddingLeft: 31,
-    marginLeft: 30,
+    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
+    paddingLeft: rem(31),
+    marginLeft: rem(30),
     fontSize: theme.fontSizes.sm,
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-    borderLeft: `1px solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
-    }`,
+    color: theme.colors.gray[7],
+    borderLeft: `${rem(1)} solid ${theme.colors.gray[3]}`,
 
     "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[7]
-          : theme.colors.gray[0],
-      color: theme.colorScheme === "dark" ? theme.white : theme.black,
+      backgroundColor: theme.colors.gray[0],
+      color: theme.black,
     },
   },
 

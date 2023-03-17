@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Stack, Box, Group, Title, Text, ActionIcon } from "@mantine/core";
-import { IconTrash } from "@tabler/icons";
+import { IconTrash } from "@tabler/icons-react";
 import { DataTable } from "mantine-datatable";
 import { convertNumberToDecimal } from "../../utils/CurrencyUtils";
 

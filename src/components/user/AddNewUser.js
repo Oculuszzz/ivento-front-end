@@ -10,7 +10,7 @@ import {
   Title,
   Select,
 } from "@mantine/core";
-import { IconCheck, IconX } from "@tabler/icons";
+import { IconCheck, IconX } from "@tabler/icons-react";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { useNavigate } from "react-router-dom";
 import { validateInput, validateSelect } from "../../utils/FormUtils";

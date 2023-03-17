@@ -12,7 +12,7 @@ import {
 import { IconCheck, IconX } from "@tabler/icons";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { validateInput } from "../../utils/FormUtils";
 import { convertDecimalToNumber } from "../../utils/CurrencyUtils";
 import { productAxiosInstance } from "../../services/AxiosService";
@@ -35,6 +35,7 @@ const AddNewProduct = () => {
     },
   });
   const [isDisabled, setIsDisabled] = useState(false);
+  const navigate = useNavigate();
 
   const submitHandler = (values) => {
     setIsDisabled(true);
@@ -76,7 +77,7 @@ const AddNewProduct = () => {
             autoClose: 5000,
             disallowClose: true,
           });
-          <Navigate to="/inventory" />;
+          navigate("/inventory");
         }
       })
       .catch((error) => {

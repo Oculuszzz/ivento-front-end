@@ -119,7 +119,11 @@ const UsersV2 = () => {
   return (
     <Card p="lg" radius="md" withBorder>
       <SimpleGrid cols={1} verticalSpacing="lg">
-        {!error && !isLoading && <Title order={4}>Users Management</Title>}
+        {!error && !isLoading && (
+          <Title color="dimmed" order={3} transform="uppercase" weight={700}>
+            Users Management
+          </Title>
+        )}
         <Box sx={{ height: 582 }}>
           <DataTable
             textSelectionDisabled

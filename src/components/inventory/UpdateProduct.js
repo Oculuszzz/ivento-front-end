@@ -140,7 +140,7 @@ const UpdateProduct = () => {
       <Stack spacing="sm">
         <form onSubmit={formProps.onSubmit((values) => submitHandler(values))}>
           <Stack spacing="md">
-            <Title order={4}>
+            <Title color="dimmed" order={3} weight={700}>
               Update Product - {data.brand} - {data.name}
             </Title>
             <TextInput

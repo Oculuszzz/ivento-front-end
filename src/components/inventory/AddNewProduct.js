@@ -12,7 +12,7 @@ import {
 import { IconCheck, IconX } from "@tabler/icons";
 import { useForm } from "@mantine/form";
 import { showNotification, updateNotification } from "@mantine/notifications";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { validateInput } from "../../utils/FormUtils";
 import { convertDecimalToNumber } from "../../utils/CurrencyUtils";
 import { productAxiosInstance } from "../../services/AxiosService";
@@ -104,7 +104,9 @@ const AddNewProduct = () => {
       <Stack spacing="sm">
         <form onSubmit={formProps.onSubmit((values) => submitHandler(values))}>
           <Stack spacing="md">
-            <Title order={4}>Add Product</Title>
+            <Title color="dimmed" order={3} transform="uppercase" weight={700}>
+              Add Product
+            </Title>
             <TextInput
               withAsterisk
               disabled={isDisabled}

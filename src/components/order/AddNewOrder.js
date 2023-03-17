@@ -188,7 +188,14 @@ const AddNewCustomerOrder = () => {
         <form onSubmit={formProps.onSubmit((values) => submitHandler(values))}>
           <Grid grow>
             <Grid.Col span={10}>
-              <Title order={4}>Add Customer Order</Title>
+              <Title
+                color="dimmed"
+                order={3}
+                transform="uppercase"
+                weight={700}
+              >
+                Add Customer Order
+              </Title>
             </Grid.Col>
 
             <Grid.Col span={5}>

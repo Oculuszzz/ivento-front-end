@@ -67,7 +67,9 @@ const Orders = () => {
       <SimpleGrid cols={1} verticalSpacing="lg">
         <Card p="lg" radius="md" withBorder>
           <SimpleGrid cols={1} verticalSpacing="lg">
-            <Title order={4}>Order Management</Title>
+            <Title color="dimmed" order={3} transform="uppercase" weight={700}>
+              Order Management
+            </Title>
             <SearchInput
               placeholder="Search by customer name..."
               onSearch={searchHandler}

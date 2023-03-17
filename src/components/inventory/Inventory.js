@@ -123,7 +123,9 @@ const Inventory = () => {
     <React.Fragment>
       <Card p="lg" radius="md" withBorder>
         <SimpleGrid cols={1} verticalSpacing="lg">
-          <Title order={4}>Inventory Management</Title>
+          <Title color="dimmed" order={3} transform="uppercase" weight={700}>
+            Inventory Management
+          </Title>
           <SearchInput
             placeholder="Search products..."
             onSearch={searchHandler}

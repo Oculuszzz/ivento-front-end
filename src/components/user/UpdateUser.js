@@ -117,16 +117,16 @@ const UpdateUser = () => {
 
   return (
     <React.Fragment>
-      <LoadingOverlay visible={isLoading} overlayBlur={2} />
       {error && <ErrorFetch error={error} />}
       {data && (
         <Card p="lg" radius="md" withBorder>
+          <LoadingOverlay visible={isLoading} overlayBlur={2} />
           <Stack spacing="sm">
             <form
               onSubmit={formProps.onSubmit((values) => submitHandler(values))}
             >
               <Stack spacing="md">
-                <Title order={4}>
+                <Title color="dimmed" order={3} weight={700}>
                   Update User - Employee ID - {data.id} - {data.username}
                 </Title>
                 <TextInput

@@ -273,7 +273,7 @@ const AddNewCustomerOrder = () => {
                 <Button
                   disabled={isDisabled}
                   component="a"
-                  href="/inventory"
+                  href="/orders/"
                   variant="subtle"
                 >
                   Cancel

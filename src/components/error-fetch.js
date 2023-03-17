@@ -1,12 +1,16 @@
+import { Alert } from "@mantine/core";
+import { IconAlertCircle } from "@tabler/icons";
+
 const ErrorFetch = (props) => {
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{props.error}</i>
-      </p>
-    </div>
+    <Alert
+      icon={<IconAlertCircle size="1rem" />}
+      title="Server Error!"
+      color="red"
+    >
+      Error retrieve data from server, please try to refresh/reload page. If
+      same error occur please contact administrator.
+    </Alert>
   );
 };
 

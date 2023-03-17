@@ -152,7 +152,7 @@ const AddNewProduct = () => {
               <Button
                 disabled={isDisabled}
                 component="a"
-                href="/iventory/"
+                href="/inventory/"
                 variant="subtle"
               >
                 Cancel

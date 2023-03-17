@@ -1,61 +1,87 @@
-import {
-  RingProgress,
-  Text,
-  SimpleGrid,
-  Paper,
-  Center,
-  Group,
-} from "@mantine/core";
-import { IconArrowUpRight, IconArrowDownRight } from "@tabler/icons";
+import { Card, LoadingOverlay, Stack, Title } from "@mantine/core";
+import { useEffect, useState } from "react";
+import { StatsRing } from "../../ui/StatsRing";
+import ErrorFetch from "../error-fetch";
+import useAxiosFetch from "../hooks/useAxiosFetch";
 
-// interface StatsRingProps {
-//   data: {
-//     label: string;
-//     stats: string;
-//     progress: number;
-//     color: string;
-//     icon: 'up' | 'down';
-//   }[];
-// }
+const InventoryStats = () => {
+  const { data, isLoading, error } = useAxiosFetch("products");
+  const [inventoryStats, setInventoryStats] = useState([{}]);
+  const [showStats, setShowStats] = useState(false);
+  const [showErrorFetch, setShowErrorFetch] = useState(false);
 
-const icons = {
-  up: IconArrowUpRight,
-  down: IconArrowDownRight,
+  useEffect(() => {
+    if (!isLoading && error) {
+      setShowErrorFetch(true);
+    } else {
+      setShowErrorFetch(false);
+    }
+  }, [isLoading, error]);
+
+  useEffect(() => {
+    if (data && !isLoading) {
+      let totGreenQuantity = 0;
+      let totYellowQuantity = 0;
+      let totRedQuantity = 0;
+
+      data.forEach((element) => {
+        if (element.quantity >= 20) {
+          totGreenQuantity += 1;
+        } else if (element.quantity < 20 && element.quantity !== 0) {
+          totYellowQuantity += 1;
+        } else {
+          totRedQuantity += 1;
+        }
+      });
+
+      const totProducts = totGreenQuantity + totYellowQuantity + totRedQuantity;
+
+      setInventoryStats([
+        {
+          label: "Good Stock Products",
+          stats: `${totGreenQuantity} / ${totProducts}`,
+          stats2: `${totGreenQuantity} products are in good stock`,
+          progress: (totGreenQuantity / totProducts) * 100,
+          color: "green",
+          icon: "up",
+        },
+        {
+          label: "Low Stock Products",
+          stats: `${totYellowQuantity} / ${totProducts}`,
+          stats2: `${totYellowQuantity} of products are in low stock.`,
+          progress: (totGreenQuantity / totProducts) * 100,
+          color: "yellow",
+          icon: "right",
+        },
+        {
+          label: "Empty Stock Products",
+          stats: `${totYellowQuantity} / ${totProducts}`,
+          stats2: `${totYellowQuantity} product are require restock.`,
+          progress: (totGreenQuantity / totProducts) * 100,
+          color: "red",
+          icon: "down",
+        },
+      ]);
+      setShowStats(true);
+    } else {
+      setShowStats(false);
+    }
+  }, [data, isLoading]);
+
+  return (
+    <Card p="lg" radius="md" withBorder>
+      <Stack spacing="xl">
+        <LoadingOverlay visible={isLoading} overlayBlur={2} />
+        {showStats && (
+          <Title color="dimmed" order={3} transform="uppercase" weight={700}>
+            Stock Summary
+          </Title>
+        )}
+        {showErrorFetch && <ErrorFetch />}
+        {showStats && <StatsRing data={inventoryStats} />}
+      </Stack>
+    </Card>
+  );
 };
 
-// export function StatsRing({ data }: StatsRingProps) {
-//   const stats = data.map((stat) => {
-//     const Icon = icons[stat.icon];
-//     return (
-//       <Paper withBorder radius="md" p="xs" key={stat.label}>
-//         <Group>
-//           <RingProgress
-//             size={80}
-//             roundCaps
-//             thickness={8}
-//             sections={[{ value: stat.progress, color: stat.color }]}
-//             label={
-//               <Center>
-//                 <Icon size={22} stroke={1.5} />
-//               </Center>
-//             }
-//           />
-
-//           <div>
-//             <Text color="dimmed" size="xs" transform="uppercase" weight={700}>
-//               {stat.label}
-//             </Text>
-//             <Text weight={700} size="xl">
-//               {stat.stats}
-//             </Text>
-//           </div>
-//         </Group>
-//       </Paper>
-//     );
-//   });
-//   return (
-//     <SimpleGrid cols={3} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-//       {stats}
-//     </SimpleGrid>
-//   );
-// }
+export default InventoryStats;

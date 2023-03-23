@@ -95,7 +95,24 @@ const convertLastDateToLocalDateTimeFormatString = (date) => {
   const s = updateDate.getSeconds();
   // const ampm = h >= 12 ? "pm" : "am";
 
-  updateDate.toISOString();
+  return `${year}-${month.toString().padStart(2, "0")}-${day
+    .toString()
+    .padStart(2, "0")}T${h.toString().padStart(2, "0")}:${m
+    .toString()
+    .padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+};
+
+const getLocalDateTimeFormatNow = () => {
+  const now = new Date();
+
+  const day = now.getDate();
+  const month = now.getMonth() + 1; // Starting index month 0
+  const year = now.getFullYear();
+
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
+  // const ampm = h >= 12 ? "pm" : "am";
 
   return `${year}-${month.toString().padStart(2, "0")}-${day
     .toString()
@@ -114,6 +131,7 @@ const DateUtils = {
   convertSelectedMonthToLastDate,
   convertFirstDateToLocalDateTimeFormatString,
   convertLastDateToLocalDateTimeFormatString,
+  getLocalDateTimeFormatNow,
 };
 
 export default DateUtils;

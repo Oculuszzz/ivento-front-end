@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
 import useAuthContext from "../context/Auth-context";
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ isAllowed, children }) => {
   const { authState } = useAuthContext();
 
-  return authState.isLoggedIn ? children : <Navigate to="/" />;
+  return authState.isLoggedIn && isAllowed ? children : <Navigate to="/" />;
 };
 
 export default PrivateRoute;

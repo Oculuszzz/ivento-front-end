@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 
-const initialAuthState = { isLoggedIn: false, isLoading: true };
+const initialAuthState = { isLoggedIn: false, isLoading: true, isAdmin: false };
 
 const AuthContext = React.createContext();
 

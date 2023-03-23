@@ -5,9 +5,9 @@ const AuthWrapper = ({ children }) => {
   const { authState, setAuthState } = useAuthContext();
 
   useEffect(() => {
-    const localHackerUser = localStorage.getItem("user");
+    const localUser = localStorage.getItem("user");
 
-    if (localHackerUser !== null && localHackerUser !== "undefined") {
+    if (localUser !== null && localUser !== "undefined") {
       setAuthState((prevState) => ({
         ...prevState,
         isLoggedIn: true,
@@ -20,7 +20,7 @@ const AuthWrapper = ({ children }) => {
         isLoading: false,
       }));
     }
-  }, []);
+  }, [setAuthState]);
 
   // wait until auth completely initialize
   if (authState.isLoading) {

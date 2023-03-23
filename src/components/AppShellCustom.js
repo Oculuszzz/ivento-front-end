@@ -16,6 +16,7 @@ import HeaderApp from "./HeaderApp";
 import PrivateRoute from "./PrivateRoute";
 import Home from "./Home";
 import useAuthContext from "../context/Auth-context";
+import TokenService from "../services/TokenService";
 
 const AppShellCustom = () => {
   const { authState, setAuthState } = useAuthContext();
@@ -56,7 +57,9 @@ const AppShellCustom = () => {
             <Route
               path="/users"
               element={
-                <PrivateRoute>
+                <PrivateRoute
+                  isAllowed={TokenService.getUserRole() === "ROLE_ADMIN"}
+                >
                   <UsersV2 />
                 </PrivateRoute>
               }
@@ -64,7 +67,9 @@ const AppShellCustom = () => {
             <Route
               path="/add-user"
               element={
-                <PrivateRoute>
+                <PrivateRoute
+                  isAllowed={TokenService.getUserRole() === "ROLE_ADMIN"}
+                >
                   <AddNewUser />
                 </PrivateRoute>
               }
@@ -72,7 +77,9 @@ const AppShellCustom = () => {
             <Route
               path="/users/update-user/:id"
               element={
-                <PrivateRoute>
+                <PrivateRoute
+                  isAllowed={TokenService.getUserRole() === "ROLE_ADMIN"}
+                >
                   <UpdateUser />
                 </PrivateRoute>
               }
@@ -80,7 +87,7 @@ const AppShellCustom = () => {
             <Route
               path="/inventory"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <Inventory />
                 </PrivateRoute>
               }
@@ -88,7 +95,7 @@ const AppShellCustom = () => {
             <Route
               path="/inventory/search/:search"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <Inventory />
                 </PrivateRoute>
               }
@@ -96,7 +103,7 @@ const AppShellCustom = () => {
             <Route
               path="/inventory/add-new-product"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <AddNewProduct />
                 </PrivateRoute>
               }
@@ -104,7 +111,7 @@ const AppShellCustom = () => {
             <Route
               path="/inventory/update-product/:id"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <UpdateProduct />
                 </PrivateRoute>
               }
@@ -112,7 +119,7 @@ const AppShellCustom = () => {
             <Route
               path="/orders"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <Orders />
                 </PrivateRoute>
               }
@@ -120,7 +127,7 @@ const AppShellCustom = () => {
             <Route
               path="/orders/search/:search"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <Orders />
                 </PrivateRoute>
               }
@@ -128,7 +135,7 @@ const AppShellCustom = () => {
             <Route
               path="/orders/add-new-customer-order"
               element={
-                <PrivateRoute>
+                <PrivateRoute isAllowed={true}>
                   <AddNewOrder />
                 </PrivateRoute>
               }

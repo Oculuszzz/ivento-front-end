@@ -14,8 +14,11 @@ import { IconCheck, IconX } from "@tabler/icons-react";
 import { showNotification, updateNotification } from "@mantine/notifications";
 import { useNavigate } from "react-router-dom";
 import { validateInput, validateSelect } from "../../utils/FormUtils";
+import DateUtils from "../../utils/DateUtils";
+import { userAxiosInstance } from "../../services/AxiosService";
+import AuthHeader from "../../services/AuthHeader";
 
-const roles = ["Admin", "User"]; // Temporary Hardcoded, later fetch from server
+const roles = ["ROLE_ADMIN", "ROLE_USER"]; // Temporary Hardcoded, later fetch from server
 
 const AddNewUser = () => {
   const formProps = useForm({
@@ -50,56 +53,59 @@ const AddNewUser = () => {
     // Construct object for new user data
     const newUserData = {
       username: values.username,
-      role: values.role,
       email: values.email,
-      isBlocked: false,
-      avatar: "G",
+      password: values.password,
+      blocked: false,
+      image: "",
+      role: values.role,
+      lastLoggedIn: DateUtils.getLocalDateTimeFormatNow(),
+      lastUpdated: DateUtils.getLocalDateTimeFormatNow(),
     };
 
-    //Add new user
-    fetch("http://localhost:8800/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newUserData),
-    })
-      .then((response) => {
-        // Do a checker from the response
-        console.log(response.status + " - " + response.statusText);
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw Error(response.status + " - " + response.statusText);
-        }
+    // Update user data
+    userAxiosInstance.service
+      .post("add-new-user", newUserData, {
+        headers: AuthHeader.getAuthHeader(),
       })
-      .then(() => {
-        updateNotification({
-          id: "load-data",
-          color: "teal",
-          title: "Successfully create user.",
-          message: "Redirect to previous page. Please wait...",
-          icon: <IconCheck size={16} />,
-          autoClose: 5000,
-          disallowClose: true,
-        });
-        navigate("/users");
+      .then((response) => {
+        // handle success
+        if (!response.status === 200) {
+          throw Error(`Error - ${response.status} - ${response.statusText}`);
+        } else {
+          updateNotification({
+            id: "load-data",
+            color: "teal",
+            title: "Successfully add new user.",
+            //   message: "Redirect to previous page in 5 seconds. Please wait...",
+            icon: <IconCheck size={16} />,
+            autoClose: 5000,
+            disallowClose: true,
+          });
+          navigate("/users");
+        }
       })
       .catch((error) => {
         // Catch the error
         if (error.name === "AbortError") {
           console.log("fecth abort error");
         } else {
+          const errorMessage =
+            error.response.status !== 401
+              ? error.response.data.message
+              : "Please try again, if reoccurring same problem please contact administrator.";
+
           updateNotification({
             id: "load-data",
             color: "red",
             title: "Failed to create new user.",
-            message:
-              "Please try again, if reoccurring same problem please contact administrator.",
+            message: errorMessage,
             icon: <IconX size={16} />,
             autoClose: 5000,
           });
-          setIsDisabled(false);
         }
       });
+
+    setIsDisabled(false);
   };
 
   return (

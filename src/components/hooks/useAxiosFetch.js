@@ -11,9 +11,14 @@ const useAxiosFetch = (url) => {
     setIsLoading(true);
     const abortController = new AbortController();
 
+    console.log("EXECUTE API AXIOS FETCH - ", url);
+
     // Make a request for a user with a given ID
     axiosInstance.service
-      .get(url, { headers: AuthHeader.getAuthHeader() })
+      .get(url, {
+        headers: AuthHeader.getAuthHeader(),
+        signal: abortController.signal,
+      })
       .then((response) => {
         // Do a checker from the response
         if (!response.status === 200) {

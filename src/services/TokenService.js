@@ -16,7 +16,13 @@ const getUserEmail = () => {
 };
 
 const getUserRole = () => {
-  return JSON.parse(localStorage.getItem("user")).role;
+  const user = localStorage.getItem("user");
+
+  if (user) {
+    return JSON.parse(localStorage.getItem("user")).role;
+  } else {
+    return "";
+  }
 };
 
 const getUserImage = () => {

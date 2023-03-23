@@ -12,10 +12,10 @@ class AxiosService {
     };
     this.service = axios.create(options);
 
-    this.service.interceptors.request.use(
-      (request) => requestHandler(request),
-      (error) => errorHandler(error)
-    );
+    // this.service.interceptors.request.use(
+    //   (request) => requestHandler(request),
+    //   (error) => errorHandler(error)
+    // );
 
     this.service.interceptors.response.use(
       (response) => responseHandler(response),
@@ -51,30 +51,29 @@ const responseHandler = (response) => {
 const errorHandler = (error) => {
   // Access Token Required/Expired
   if (error.response.status === 401) {
-    refreshToken();
+    // Attempt to refresh token
+    const data = { refreshToken: AuthHeader.getRefreshToken() };
+
+    console.log("EXECUTE API REFRESH");
+
+    axiosInstance.service
+      .post("refreshtoken", data)
+      .then((response) => {
+        // update state of data
+        if (response.data.accessToken) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+          console.log("SUCCESSFULLY REFRESH TOKEN!");
+        }
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log("REFRESH TOKEN EXPIRED :", err.response);
+        localStorage.removeItem("user");
+        window.location.reload();
+      });
   }
 
   return Promise.reject(error);
-};
-
-const refreshToken = () => {
-  // Attempt to refresh token
-  axios
-    .post(process.env.REACT_APP_BACKEND_BASE_URL + "refreshToken", {
-      refreshToken: AuthHeader.getRefreshToken(),
-    })
-    .then((response) => {
-      // update state of data
-      if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
-      window.location.reload();
-    })
-    .catch((err) => {
-      console.log("refresh token expired :", err.response);
-      localStorage.removeItem("user");
-      window.location.reload();
-    });
 };
 
 export default AxiosService;
